@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Route,Switch,Redirect} from 'react-router-dom'
+import {Route,Switch} from 'react-router-dom'
 import Home from './pages/Home' //Home是路由组件
 import About from './pages/About' //About是路由组件
 import Header from './components/Header' //Header是一般组件
@@ -22,7 +22,8 @@ export default class App extends Component {
 							{/* <a className="list-group-item" href="./about.html">About</a>
 							<a className="list-group-item active" href="./home.html">Home</a> */}
 
-							{/* 在React中靠路由链接实现切换组件--编写路由链接 */}
+							{/* 在React中靠路由链接实现切换组件--编写路由链接 这个区域是导航区域
+							这个区域相当于用户点击提供给路由要去和路径进行匹配 */}
 							<MyNavLink to="/about">About</MyNavLink>
 							<MyNavLink to="/home">Home</MyNavLink>
 						</div>
@@ -30,13 +31,12 @@ export default class App extends Component {
 					<div className="col-xs-6">
 						<div className="panel">
 							<div className="panel-body">
-								{/* 注册路由 */}
+								{/* 注册路由 在内容区域真正显示出来*/}
 								<Switch>
 									<Route path="/about" component={About}/>
 									<Route path="/home" component={Home}/>
-									{/* 兜底的重定向 就是如果谁都进不去就是展示他 可以用作一开始的默认项 */}
-									<Redirect to="/about"/>
 								</Switch>
+								
 							</div>
 						</div>
 					</div>
